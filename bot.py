@@ -10,7 +10,9 @@ from signal import SIGINT, SIGTERM
 load_dotenv()
 DISCORD_TOKEN = os.environ['DISCORD_TOKEN']
 
-client = discord.Client()
+intents=discord.Intents.all()
+client = discord.Client(intents=intents)
+
 
 @client.event
 async def on_ready():
@@ -20,11 +22,18 @@ async def on_ready():
             f'{guild.name}(id: {guild.id})'
         )
     
-        
+@client.event
+async def on_message(message):
+    if (message.channel.name == 'chill-vc-chat'):
+    	print(message.author.name + ': ' + message.content.strip())
+
 @client.event
 async def on_member_join(member):
-    channel = discord.utils.get(member.guild.text_channels, name="pa-speaker")
-    await channel.send(f"{member} has arrived!")
+    print(member.name + " has joined!")
+    # Use this if you have multiple servers. You can also just get the member.guild.text_channels
+    # channel = discord.utils.get(member.guild.text_channels, name='chill-vc-chat')
+    channel = discord.utils.get(client.get_all_channels(), name='chill-vc-chat')
+    await channel.send(f"{member.mention} has arrived!")
 
 client.run(DISCORD_TOKEN)
 
