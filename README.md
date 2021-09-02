@@ -1,4 +1,5 @@
-# AlaKeepa
+# JuryDisco Bot
+Grooovvvyyy
 
 ## Instructions
 TBD
