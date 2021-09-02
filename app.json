@@ -1,0 +1,11 @@
+{
+  "name": "JuryDiscoBot",
+  "description": "Discord bot to get GROOVVVYYY",
+  "repository": "https://github.com/jnguyen7410/jurydisco-bot",
+  "keywords": ["python", "jurytan", "discord", "bot"],
+  "env": {
+      "DISCORD_TOKEN": {
+        "description": "The secret token for your Discord Bot."
+      }
+    }
+}
